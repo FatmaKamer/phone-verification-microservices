@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fff4f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+#form-container {
+  background: #ffe6ee;
+  padding: 25px;
+  border-radius: 15px;
+  width: 350px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+#alert-box {
+  background: #ffccd5;
+  border-left: 5px solid #ff4d6d;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#alert-box.hidden {
+  display: none;
+}
+
+#alert-close {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  background: #f0f0f0;
+  font-size: 15px;
+}
+
+.phone-input {
+  background: #e8e8e8;
+}
+
+/* Buton */
+#submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #ffafc9;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#submit-btn:hover {
+  background: #ff94b5;
+}
+
+/* BONUS TABLO */
+#table-container {
+  margin-top: 40px;
+  width: 600px;
+  text-align: center;
+}
+
+#records-table {
+  margin-top: 15px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#records-table th, #records-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#records-table th {
+  background: #ffd7e2;
+}

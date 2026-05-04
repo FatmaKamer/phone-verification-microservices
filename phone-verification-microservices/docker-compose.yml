@@ -1,0 +1,51 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: telefon_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: telefon_numarasi
+    volumes:
+      - ./db/veri_tabani_olustur.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot_password"]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+      
+    restart: unless-stopped
+
+  api:
+    build: ./api
+    container_name: telefon_api
+    ports:
+      - "3000:3000"
+
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: root_password
+      DB_NAME: telefon_numarasi
+    
+    depends_on:
+      db:
+        condition: service_healthy
+    
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: telefon_frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  db_data:

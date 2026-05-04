@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Telefon Kayıt Formu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="form-container">
+
+    <div id="alert-box" class="hidden">
+      <span id="alert-text"></span>
+      <button id="alert-close" onclick="closeAlert()">✖</button>
+    </div>
+
+    <h2>Telefon Kayıt Formu</h2>
+
+    <input type="text" id="phone" placeholder="Numara (6 basamak)" class="phone-input">
+
+    <input type="text" id="name" placeholder="Ad">
+    <input type="text" id="surname" placeholder="Soyad">
+    <input type="email" id="email" placeholder="E-posta">
+
+    <button id="submit-btn" onclick="submitForm()">GÖNDER</button>
+
+  </div>
+
+  <div id="table-container">
+    <h3>Son Kayıtlar</h3>
+    <button onclick="loadRegistrations()">Kayıtları Göster</button>
+    <table id="records-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Ad</th>
+          <th>Soyad</th>
+          <th>E-posta</th>
+          <th>Telefon</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
